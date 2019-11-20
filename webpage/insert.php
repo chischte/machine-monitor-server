@@ -1,8 +1,6 @@
 <?php
-$username = "michi";
-$password = "uint8_t0-255";
-$database = "MACHINE_LOG_DB";
-$mysqli = new mysqli("localhost", "username", "password", "database");
+
+$mysqli = new mysqli("84.74.164.121", "michi", "uint8_t0-255", "MACHINE_LOG_DB");
 
  
 $query = "SELECT * FROM machinelog";
