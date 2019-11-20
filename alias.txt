@@ -1,3 +1,5 @@
-alias pullweb="cd ~/git/machine-log-server; git pull; cp webpage/*.* var/www/html/;"
+vim ~/.bashrc
+
+alias pullweb="cd ~/git/machine-monitor-server; git pull; sudo cp webpage/*.* /var/www/html/;"
 
 
