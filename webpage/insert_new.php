@@ -1,6 +1,6 @@
 <?php
 
-$con = new mysqli("http://machinelogger.synology.me", "michi", "uint8_t0-255", "MACHINE_LOG_DB");
+$con = new mysqli("machinelogger.synology.me", "michi", "uint8_t0-255", "MACHINE_LOG_DB");
 
 if (mysqli_connect_errno())
 {
