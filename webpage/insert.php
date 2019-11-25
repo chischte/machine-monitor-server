@@ -1,26 +1,31 @@
 <?php
 
-$mysqli = new mysqli("84.74.164.121", "michi", "uint8_t0-255", "MACHINE_LOG_DB");
+$con = new mysqli("84.74.164.121", "michi", "uint8_t0-255", "MACHINE_LOG_DB");
 
- 
-$query = "SELECT * FROM machinelog";
-echo "<b> <center>Database Output</center> </b> <br> <br>";
- 
-if ($result = $mysqli->query($query)) {
- 
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["col1"];
-        $field2name = $row["col2"];
-        $field3name = $row["col3"];
-        $field4name = $row["col4"];
-        $field5name = $row["col5"];
- 
-        echo '<b>'.$field1name.$field2name.'</b><br />';
-        echo $field5name.'<br />';
-        echo $field5name.'<br />';
-        echo $field5name;
-    }
- 
-/*freeresultset*/
-$result->free();
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$result = mysqli_query($con,"SELECT * FROM machinelog");
+
+echo "<table border='1'>
+<tr>
+<th>machine_id</th>
+<th>machine_status</th>
+<th>cylce</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['machine_id'] . "</td>";
+    echo "<td>" . $row['machine_status'] . "</td>";
+    echo "<td>" . $row['cycle'] . "</td>";
+    
+    echo "</tr>";
+}
+echo "</table>";
+
+mysqli_close($con);
+?>
