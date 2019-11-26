@@ -8,6 +8,9 @@ WiFiClient client;
 void setup()
 {
   assignLoginData(); // assigns values to *ssid and *pass
+  //assignLoginData() contains:
+  //ssid="ssid-name"
+  //pass="password"
   Serial.begin(9600);
   delay(10);
 
@@ -28,7 +31,7 @@ void loop()
 {
   Serial.print("Connected / IP address: ");
   Serial.println(WiFi.localIP());
+  Serial.println("ok");
+  Serial.println(ssid);
   delay(2000);
 }
-
-
