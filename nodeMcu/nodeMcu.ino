@@ -121,8 +121,8 @@ void setup()
   delay(5000);
   
   // Ping technologytourist.com
-  Serial.printf("\n\nPinging technologytourist.com\n");
-  if(pinger.Ping("technologytourist.com") == false)
+  Serial.printf("\n\nPinging machinelogger.synology.me\n");
+  if(pinger.Ping("machinelogger.synology.me") == false)
   {
     Serial.println("Error during ping command.");
   }
