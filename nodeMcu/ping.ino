@@ -83,7 +83,7 @@ void pingServer(){
   
   delay(5000);
   
-  // Ping technologytourist.com
+  // Ping machine server
   Serial.printf("\n\nPinging machinelogger.synology.me\n");
   if(pinger.Ping("machinelogger.synology.me") == false)
   {
@@ -91,21 +91,6 @@ void pingServer(){
   }
 
   delay(5000);
-
-  // Ping undefinedname
-  Serial.printf("\n\nPinging undefinedname\n");
-  if(pinger.Ping("undefinedname") == false)
-  {
-    Serial.println("Error during ping command.");
-  }
-
-  delay(5000);
-
-  // Ping invalid ip
-  Serial.printf("\n\nPinging invalid ip 1.2.3.4\n");
-  if(pinger.Ping(IPAddress(1,2,3,4)) == false)
-  {
-    Serial.println("Error during ping command.");
-  }
 }
+
 

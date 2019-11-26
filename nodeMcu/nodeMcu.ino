@@ -34,16 +34,15 @@ void setup()
   }
   Serial.println("");
   Serial.println("WiFi connected");
-  pingServer();
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 
+  // GET A PING FROM MACHINE-DB-SERVER:
+  pingServer();
 }
 
 void loop()
 {
-  Serial.print("Connected / IP address: ");
-  Serial.println(WiFi.localIP());
-  Serial.println("ok");
-  Serial.println(ssid);
+  Serial.print(".");
   delay(2000);
-
 }
