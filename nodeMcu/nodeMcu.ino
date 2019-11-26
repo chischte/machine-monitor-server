@@ -36,7 +36,7 @@ void setup()
   Serial.println("WiFi connected");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-
+  delay (5000);
   // GET A PING FROM MACHINE-DB-SERVER:
   pingServer();
 }

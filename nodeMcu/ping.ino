@@ -81,7 +81,7 @@ void pingServer(){
     Serial.println("Error during last ping command.");
   }
   
-  delay(5000);
+  delay(7000);
   
   // Ping machine server
   Serial.printf("\n\nPinging machinelogger.synology.me\n");
@@ -90,7 +90,7 @@ void pingServer(){
     Serial.println("Error during ping command.");
   }
 
-  delay(5000);
+  delay(7000);
 }
 
 
