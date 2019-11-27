@@ -11,8 +11,10 @@ $result = mysqli_query($con,"SELECT * FROM machinelog");
 
 echo "<table border='1'>
 <tr>
-<th>machine_id</th>
-<th>machine_status</th>
+<th>Test Rig</th>
+<th>Status</th>
+<th>Anzahl Zyklen</th>
+
 </tr>";
 
 while($row = mysqli_fetch_array($result))
@@ -20,6 +22,7 @@ while($row = mysqli_fetch_array($result))
 echo "<tr>";
 echo "<td>" . $row['machine_id'] . "</td>";
 echo "<td>" . $row['machine_status'] . "</td>";
+echo "<td>" . $row['cycles'] . "</td>";
 echo "</tr>";
 }
 echo "</table>";
