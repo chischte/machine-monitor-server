@@ -11,7 +11,7 @@ $result = mysqli_query($con,"SELECT * FROM machinelog");
 
 echo "<table border='1'>
 <tr>
-<th>Test Rig</th>
+<th>TestRig</th>
 <th>Status</th>
 <th>Anzahl Zyklen</th>
 
