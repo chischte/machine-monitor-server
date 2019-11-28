@@ -2,7 +2,7 @@
 //*********************************************************************************
 //PINGER
 //*********************************************************************************
-#include <Pinger.h>
+#include <Pinger.h> // https://github.com/bluemurder/esp8266-ping.git
 extern "C"
 {
 #include <lwip/icmp.h> // needed for icmp packet definitions
@@ -17,9 +17,9 @@ Pinger pinger;
 void setup()
 {
   getLogins(); // assigns values to *ssid and *pass
-  //getLogins() contains:
-  //ssid="ssid-name"
-  //pass="password"
+  //void getLogins(){} contains:
+  //ssid="ssid-name";
+  //pass="password";
   Serial.begin(9600);
   delay(10);
 

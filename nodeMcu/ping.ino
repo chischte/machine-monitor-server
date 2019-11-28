@@ -1,5 +1,5 @@
-void pingServer(){
-  pinger.OnReceive([](const PingerResponse& response)
+void pingServer() {
+  pinger.OnReceive([](const PingerResponse & response)
   {
     if (response.ReceivedResponse)
     {
@@ -19,16 +19,16 @@ void pingServer(){
     // If current event returns false, the ping sequence is interrupted.
     return true;
   });
-  
-  pinger.OnEnd([](const PingerResponse& response)
+
+  pinger.OnEnd([](const PingerResponse & response)
   {
     // Evaluate lost packet percentage
     float loss = 100;
-    if(response.TotalReceivedResponses > 0)
+    if (response.TotalReceivedResponses > 0)
     {
       loss = (response.TotalSentRequests - response.TotalReceivedResponses) * 100 / response.TotalSentRequests;
     }
-    
+
     // Print packet trip data
     Serial.printf(
       "Ping statistics for %s:\n",
@@ -41,7 +41,7 @@ void pingServer(){
       loss);
 
     // Print time information
-    if(response.TotalReceivedResponses > 0)
+    if (response.TotalReceivedResponses > 0)
     {
       Serial.printf("Approximate round trip times in milli-seconds:\n");
       Serial.printf(
@@ -50,19 +50,19 @@ void pingServer(){
         response.MaxResponseTime,
         response.AvgResponseTime);
     }
-    
+
     // Print host data
     Serial.printf("Destination host data:\n");
     Serial.printf(
       "    IP address: %s\n",
       response.DestIPAddress.toString().c_str());
-    if(response.DestMacAddress != nullptr)
+    if (response.DestMacAddress != nullptr)
     {
       Serial.printf(
         "    MAC address: " MACSTR "\n",
         MAC2STR(response.DestMacAddress->addr));
     }
-    if(response.DestHostname != "")
+    if (response.DestHostname != "")
     {
       Serial.printf(
         "    DNS name: %s\n",
@@ -71,26 +71,26 @@ void pingServer(){
 
     return true;
   });
-  
+
   // Ping default gateway
   Serial.printf(
     "\n\nPinging default gateway with IP %s\n",
     WiFi.gatewayIP().toString().c_str());
-  if(pinger.Ping(WiFi.gatewayIP()) == false)
+  if (pinger.Ping(WiFi.gatewayIP()) == false)
   {
     Serial.println("Error during last ping command.");
   }
-  
+
   delay(7000);
-  
+
   // Ping machine server
   Serial.printf("\n\nPinging machinelogger.synology.me\n");
-  if(pinger.Ping("machinelogger.synology.me") == false)
+  if (pinger.Ping("machinelogger.synology.me") == false)
+    // LOCAL PING:
+    //if(pinger.Ping("55.55.55.55") == false)
   {
     Serial.println("Error during ping command.");
   }
 
   delay(7000);
 }
-
-
