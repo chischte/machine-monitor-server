@@ -1,4 +1,4 @@
 <?php
-$output = shell_exec('cd ~/git/machine-monitor-server/; git pull');
+$output = shell_exec('cd /home/michi/git/machine-monitor-server ; git pull; ls');
 echo "<pre>$output</pre>";
 ?>
