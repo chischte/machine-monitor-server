@@ -13,7 +13,7 @@ echo "<table border='1'>
 <tr>
 <th>TestRig</th>
 <th>Status</th>
-<th>Anzahl Zyklen</th>
+<th>  Anzahl Zyklen___  </th>
 
 </tr>";
 
