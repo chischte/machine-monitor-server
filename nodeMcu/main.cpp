@@ -95,25 +95,14 @@ void pingServer()
     return true;
   });
 
-  // Ping default gateway
-  Serial.printf(
-      "\n\nPinging default gateway with IP %s\n",
-      WiFi.gatewayIP().toString().c_str());
-  if (pinger.Ping(WiFi.gatewayIP()) == false)
-  {
-    Serial.println("Error during last ping command.");
-  }
-
-  delay(7000);
-
   // Ping machine server
-  Serial.printf("\n\nPinging machinelogger.synology.me\n");
+  //Serial.printf("\n\nPinging machinelogger.synology.me\n");
   if (pinger.Ping("machinelogger.synology.me") == false)
-  // LOCAL PING:
-  //if(pinger.Ping("55.55.55.55") == false)
-  {
-    Serial.println("Error during ping command.");
-  }
+    // LOCAL PING:
+    if (pinger.Ping("55.55.55.55") == false)
+    {
+      Serial.println("Error during ping command.");
+    }
 
   delay(7000);
 }
@@ -135,7 +124,7 @@ void setup()
   //   char *charToReturn = "password";
   //   return charToReturn;
   // }
-  
+
   Serial.begin(9600);
   delay(10);
 
