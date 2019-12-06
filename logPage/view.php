@@ -64,7 +64,7 @@ if ($result = mysqli_query($conn, $sql)) {
         echo "<TD>" . $row[0] . "</TD>";
         echo "<TD>" . $row[1] . "</TD>";
         echo "<TD>" . $row[2] . "</TD>";
-        // echo "<TD>".$row[3]."</TD>";
+        echo "<TD>".$row[3]."</TD>"; //
         echo "<TD>" . $row[4] . "</TD>";
         echo "<TD>" . $row[5] . "</TD>";
         echo "</TR>";
