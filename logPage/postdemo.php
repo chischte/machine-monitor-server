@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Get current date and time
-date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('Europe/Zurich');
 $d = date("Y-m-d");
 // echo " Date:".$d."<BR>";
 $t = date("H:i:s");
