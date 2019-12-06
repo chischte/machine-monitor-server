@@ -58,7 +58,7 @@ $sql = "SELECT * FROM logs ORDER BY id DESC";
 if ($result = mysqli_query($conn, $sql)) {
     // Fetch one and one row
     echo "<TABLE id='c4ytable'>";
-    echo "<TR><TH>Sr.No.</TH><TH>Station</TH><TH>ADC Value</TH><TH>Date</TH><TH>Time</TH></TR>";
+    echo "<TR><TH>Sr.No.</TH><TH>Station</TH><TH>ADC Value</TH><TH>Date</TH><TH>Time</TH><TH>Timestamp</TH></TR>";
     while ($row = mysqli_fetch_row($result)) {
         echo "<TR>";
         echo "<TD>" . $row[0] . "</TD>";
