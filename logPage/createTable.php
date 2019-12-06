@@ -24,9 +24,9 @@ $conn->close();
 
 echo "<br>";
 // Connect to database and create table
-$servername = "localhost";
-$username = "root";
-$password = "root";
+$servername = "machinelogger.synology.me";
+$username = "michi";
+$password = "uint8_t0-255";
 $dbname = "espdemo";
 
 // Create connection
