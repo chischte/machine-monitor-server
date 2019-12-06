@@ -2,6 +2,10 @@
 #include <ESP8266WiFi.h>
 #include "getLogins.h"
 
+#include <WiFiClient.h> 
+#include <ESP8266WebServer.h>
+#include <ESP8266HTTPClient.h>
+
 //*********************************************************************************
 //PINGER
 //*********************************************************************************
@@ -148,8 +152,28 @@ void setup()
 
 void loop()
 {
-  Serial.print(".");
-  delay(2000);
+   HTTPClient http;    //Declare object of class HTTPClient
+ 
+  String ADCData, station, postData;
+  int adcvalue=analogRead(A0);  //Read Analog value of LDR
+  ADCData = String(adcvalue);   //String to interger conversion
+  station = "A";
+ 
+  //Post Data
+  postData = "status=" + ADCData + "&station=" + station ;
+  
+  http.begin("http://machinelogger.synology.me:8080/postdemo.php");              //Specify request destination
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
+ 
+  int httpCode = http.POST(postData);   //Send the request
+  String payload = http.getString();    //Get the response payload
+ 
+  Serial.println(httpCode);   //Print HTTP return code
+  Serial.println(payload);    //Print request response payload
+ 
+  http.end();  //Close connection
+  
+  delay(5000);  //Post Data at every 5 seconds
 }
 
 ///*
