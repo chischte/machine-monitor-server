@@ -156,8 +156,9 @@ void loop()
  
   String ADCData, station, postData;
   int adcvalue=analogRead(A0);  //Read Analog value of LDR
-  ADCData = String(adcvalue);   //String to interger conversion
-  station = "A";
+  //ADCData = String(adcvalue);   //String to interger conversion
+  ADCData = "DATA";
+  station = "PTH STANDARD RIG";
  
   //Post Data
   postData = "status=" + ADCData + "&station=" + station ;
