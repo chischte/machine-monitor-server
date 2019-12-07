@@ -154,16 +154,18 @@ void loop()
 {
    HTTPClient http;    //Declare object of class HTTPClient
  
-  String ADCData, station, postData;
+  String testrig, status, cyclereset, cycletotal, postData;
   int adcvalue=analogRead(A0);  //Read Analog value of LDR
-  //ADCData = String(adcvalue);   //String to interger conversion
-  ADCData = "DATA";
-  station = "PTH STANDARD RIG";
+  //testrig = String(adcvalue);   //String to interger conversion
+  testrig = "DATA";
+  status = "PTH STANDARD RIG";
+  cyclereset = "654";
+  cycletotal = "12005456";
  
   //Post Data
-  postData = "status=" + ADCData + "&station=" + station ;
+  postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal="+cycletotal;
   
-  http.begin("http://machinelogger.synology.me:8080/postdemo.php");              //Specify request destination
+  http.begin("http://machinelogger.synology.me:8080/postLog.php");              //Specify request destination
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
  
   int httpCode = http.POST(postData);   //Send the request

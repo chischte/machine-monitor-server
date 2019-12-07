@@ -39,7 +39,7 @@
 $servername = "machinelogger.synology.me";
 $username = "michi";
 $password = "uint8_t0-255";
-$dbname = "espdemo";
+$dbname = "machinelogger";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -58,15 +58,16 @@ $sql = "SELECT * FROM logs ORDER BY id DESC";
 if ($result = mysqli_query($conn, $sql)) {
     // Fetch one and one row
     echo "<TABLE id='c4ytable'>";
-    echo "<TR><TH>Sr.No.</TH><TH>Station</TH><TH>ADC Value</TH><TH>Date</TH><TH>Time</TH><TH>Timestamp</TH></TR>";
+    echo "<TR><TH>LOG NO.</TH><TH>TEST RIG</TH><TH>STATUS</TH><TH>CYCLES SINCE RESET</TH><TH>TOTAL CYCLES</TH><TH>TIME</TH><TH>DATE</TH></TR>";
     while ($row = mysqli_fetch_row($result)) {
         echo "<TR>";
         echo "<TD>" . $row[0] . "</TD>";
         echo "<TD>" . $row[1] . "</TD>";
         echo "<TD>" . $row[2] . "</TD>";
-        echo "<TD>".$row[3]."</TD>"; //
+        echo "<TD>" . $row[3] . "</TD>"; //
         echo "<TD>" . $row[4] . "</TD>";
         echo "<TD>" . $row[5] . "</TD>";
+        echo "<TD>" . $row[6] . "</TD>";
         echo "</TR>";
     }
     echo "</TABLE>";
@@ -76,6 +77,14 @@ if ($result = mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 ?>
+
+
+
+
+
+
+
+
 
 
 </body>

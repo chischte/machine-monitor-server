@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Create database
-$sql = "CREATE DATABASE espdemo";
+$sql = "CREATE DATABASE machinelogger";
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully";
 } else {
@@ -27,7 +27,7 @@ echo "<br>";
 $servername = "machinelogger.synology.me";
 $username = "michi";
 $password = "uint8_t0-255";
-$dbname = "espdemo";
+$dbname = "machinelogger";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,13 +41,13 @@ if ($conn->connect_error) {
 // sql to create table
 $sql = "CREATE TABLE logs (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	station VARCHAR(30),
+	testrig VARCHAR(30),
 	status VARCHAR(30),
-	remark VARCHAR(50),
-	`Date` DATE NULL,
-	`Time` TIME NULL, 
-	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-	)";
+	cyclereset VARCHAR(30),
+    cycletotal VARCHAR(30),
+	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `Date` DATE NULL	
+)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Table logs created successfully";
