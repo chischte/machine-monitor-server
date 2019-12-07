@@ -25,7 +25,7 @@ if (! empty($_POST['testrig']) && ! empty($_POST['status'])&& ! empty($_POST['cy
     $cyclereset = $_POST['cyclereset'];
     $cycletotal = $_POST['cycletotal'];
 
-    $sql = "INSERT INTO logs (station, status, cyclereset, cycletotal)
+    $sql = "INSERT INTO logs (testrig, status, cyclereset, cycletotal)
 		
 		VALUES ('" . $testrig . "', '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
 
