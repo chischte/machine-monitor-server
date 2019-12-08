@@ -19,7 +19,7 @@ $d = date("Y-m-d");
 // echo " Date:".$d."<BR>";
 $t = date("H:i:s");
 
-if (! empty($_POST['if']) && ! empty($_POST['status']) && ! empty($_POST['cycr']) && ! empty($_POST['cyct'])) {
+if (! empty($_POST['id']) && ! empty($_POST['status']) && ! empty($_POST['cycr']) && ! empty($_POST['cyct'])) {
     $testrig = $_POST['id'];
     $status = $_POST['status'];
     $cyclereset = $_POST['cycr'];
