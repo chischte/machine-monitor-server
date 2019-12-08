@@ -153,7 +153,7 @@ void setup()
 void loop()
 {
   //GET LOG INFORMATION FROM SERIAL COMMUNICATION:
-  static String serialInputString="n.a";
+  static String serialInputString="id=1&status=running&cycr=666&cyct=1234567";;
   while (Serial.available())
   {
     serialInputString = Serial.readString(); // read the incoming data as string
@@ -161,21 +161,22 @@ void loop()
 
   HTTPClient http; //Declare object of class HTTPClient
 
-  String testrig, status, cyclereset, cycletotal, postData;
-  int adcvalue = analogRead(A0); //Read Analog value of LDR
+  //String testrig, status, cyclereset, cycletotal, postData;
+  //int adcvalue = analogRead(A0); //Read Analog value of LDR
+  
   //testrig = String(adcvalue);   //String to interger conversion
-  testrig = "1";
-  status = serialInputString;
-  cyclereset = "666";
-  cycletotal = "1234567";
+  //testrig = "1";
+  //status = serialInputString;
+  //cyclereset = "666";
+  //cycletotal = "1234567";
 
   //Post Data
-  postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal=" + cycletotal;
+  //postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal=" + cycletotal;
 
   http.begin("http://machinelogger.synology.me:8080/postLog.php");     //Specify request destination
   http.addHeader("Content-Type", "application/x-www-form-urlencoded"); //Specify content-type header
 
-  int httpCode = http.POST(postData); //Send the request
+  int httpCode = http.POST(serialInputString); //Send the request
   String payload = http.getString();  //Get the response payload
 
   Serial.println(httpCode); //Print HTTP return code

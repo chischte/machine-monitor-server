@@ -19,18 +19,18 @@ $d = date("Y-m-d");
 // echo " Date:".$d."<BR>";
 $t = date("H:i:s");
 
-if (! empty($_POST['testrig']) && ! empty($_POST['status']) && ! empty($_POST['cyclereset']) && ! empty($_POST['cycletotal'])) {
-    $testrig = $_POST['testrig'];
+if (! empty($_POST['if']) && ! empty($_POST['status']) && ! empty($_POST['cycr']) && ! empty($_POST['cyct'])) {
+    $testrig = $_POST['id'];
     $status = $_POST['status'];
-    $cyclereset = $_POST['cyclereset'];
-    $cycletotal = $_POST['cycletotal'];
+    $cyclereset = $_POST['cycr'];
+    $cycletotal = $_POST['cyct'];
 
-    $rigname = 'PTH STANDARD';
-    $rigid = '1';
+   //$rigname = 'PTH STANDARD';
+    //$rigid = '1';
 
-    if (strcomp($testrig, $rigid)==0) { //0 = Strings are equal
-        $testrig = $rigname;
-    }
+//     if (strcomp($testrig, $rigid)==0) { //0 = Strings are equal
+//         $testrig = $rigname;
+//     }
 
     $sql = "INSERT INTO logs (testrig, status, cyclereset, cycletotal)
 		
