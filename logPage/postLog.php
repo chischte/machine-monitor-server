@@ -19,12 +19,10 @@ if (! empty($_POST['id']) && ! empty($_POST['status']) && ! empty($_POST['cycr']
     $cyclereset = $_POST['cycr'];
     $cycletotal = $_POST['cyct'];
 
-    $rigname = 'PTH STANDARD';
-    //$rigid = '1';
-
+    // ASSIGN RIG NAME TO RIG ID:
     switch ($_POST['id']) {
         case '1':
-            $testrig = $rigname;
+            $testrig = 'PTH STANDARD';
             break;
     }
 
