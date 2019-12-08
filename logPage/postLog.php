@@ -24,7 +24,10 @@ if (! empty($_POST['testrig']) && ! empty($_POST['status'])&& ! empty($_POST['cy
     $status = $_POST['status'];
     $cyclereset = $_POST['cyclereset'];
     $cycletotal = $_POST['cycletotal'];
-
+if($testrig='1')
+{
+    $testrig='PTH STANDARD';
+}
     $sql = "INSERT INTO logs (testrig, status, cyclereset, cycletotal)
 		
 		VALUES ('" . $testrig . "', '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
