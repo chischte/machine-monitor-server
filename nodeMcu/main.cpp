@@ -2,7 +2,7 @@
 #include <ESP8266WiFi.h>
 #include "getLogins.h"
 
-#include <WiFiClient.h> 
+#include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
 
@@ -152,31 +152,38 @@ void setup()
 
 void loop()
 {
-   HTTPClient http;    //Declare object of class HTTPClient
- 
+  //GET LOG INFORMATION FROM SERIAL COMMUNICATION:
+  static String serialInputString="n.a";
+  while (Serial.available())
+  {
+    serialInputString = Serial.readString(); // read the incoming data as string
+  }
+
+  HTTPClient http; //Declare object of class HTTPClient
+
   String testrig, status, cyclereset, cycletotal, postData;
-  int adcvalue=analogRead(A0);  //Read Analog value of LDR
+  int adcvalue = analogRead(A0); //Read Analog value of LDR
   //testrig = String(adcvalue);   //String to interger conversion
   testrig = "1";
-  status = "running";
+  status = serialInputString;
   cyclereset = "666";
   cycletotal = "1234567";
- 
+
   //Post Data
-  postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal="+cycletotal;
-  
-  http.begin("http://machinelogger.synology.me:8080/postLog.php");              //Specify request destination
-  http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
- 
-  int httpCode = http.POST(postData);   //Send the request
-  String payload = http.getString();    //Get the response payload
- 
-  Serial.println(httpCode);   //Print HTTP return code
-  Serial.println(payload);    //Print request response payload
- 
-  http.end();  //Close connection
-  
-  delay(5000);  //Post Data at every 5 seconds
+  postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal=" + cycletotal;
+
+  http.begin("http://machinelogger.synology.me:8080/postLog.php");     //Specify request destination
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded"); //Specify content-type header
+
+  int httpCode = http.POST(postData); //Send the request
+  String payload = http.getString();  //Get the response payload
+
+  Serial.println(httpCode); //Print HTTP return code
+  Serial.println(payload);  //Print request response payload
+
+  http.end(); //Close connection
+
+  delay(5000); //Post Data at every 5 seconds
 }
 
 ///*
