@@ -30,7 +30,7 @@ if (! empty($_POST['id']) && ! empty($_POST['status']) && ! empty($_POST['cycr']
 
     $sql = "INSERT INTO logs (testrig, status, cyclereset, cycletotal)
 		
-		VALUES ('" . $rigname . "', '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
+		VALUES ("OKY", '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
 
     if ($conn->query($sql) === TRUE) {
         echo "OK";
