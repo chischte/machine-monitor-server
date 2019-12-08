@@ -157,10 +157,10 @@ void loop()
   String testrig, status, cyclereset, cycletotal, postData;
   int adcvalue=analogRead(A0);  //Read Analog value of LDR
   //testrig = String(adcvalue);   //String to interger conversion
-  testrig = "DATA";
-  status = "PTH STANDARD RIG";
-  cyclereset = "654";
-  cycletotal = "12005456";
+  testrig = "1";
+  status = "running";
+  cyclereset = "666";
+  cycletotal = "1234567";
  
   //Post Data
   postData = "testrig=" + testrig + "&status=" + status + "&cyclereset=" + cyclereset + "&cycletotal="+cycletotal;
