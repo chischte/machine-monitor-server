@@ -37,8 +37,8 @@
 <?php
 // Connect to database and create table
 $servername = "machinelogger.synology.me";
-$username = "michi";
-$password = "uint8_t0-255";
+$username = "machineloguser";
+$password = "demopassword";
 $dbname = "machinelogger";
 
 // Create connection

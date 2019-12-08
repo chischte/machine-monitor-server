@@ -2,8 +2,8 @@
 <?php
 // Create Data base if not exists
 $servername = "machinelogger.synology.me";
-$username = "michi";
-$password = "uint8_t0-255";
+$username = "machineloguser";
+$password = "demopassword";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -25,8 +25,8 @@ $conn->close();
 echo "<br>";
 // Connect to database and create table
 $servername = "machinelogger.synology.me";
-$username = "michi";
-$password = "uint8_t0-255";
+$username = "machineloguser";
+$password = "demopassword";
 $dbname = "machinelogger";
 
 // Create connection
@@ -45,9 +45,8 @@ $sql = "CREATE TABLE logs (
 	status VARCHAR(30),
 	cyclereset VARCHAR(30),
     cycletotal VARCHAR(30),
-	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `Date` DATE NULL	
-)";
+	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+   )";
 
 if ($conn->query($sql) === TRUE) {
     echo "Table logs created successfully";
