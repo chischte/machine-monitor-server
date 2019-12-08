@@ -58,7 +58,7 @@ $sql = "SELECT * FROM logs ORDER BY id DESC";
 if ($result = mysqli_query($conn, $sql)) {
     // Fetch one and one row
     echo "<TABLE id='c4ytable'>";
-    echo "<TR><TH>LOG NO.</TH><TH>TEST RIG</TH><TH>STATUS</TH><TH>CYCLES SINCE RESET</TH><TH>TOTAL CYCLES</TH><TH>TIME</TH><TH>DATE</TH></TR>";
+    echo "<TR><TH>LOG NO.</TH><TH>TEST RIG</TH><TH>STATUS</TH><TH>CYCLES SINCE RESET</TH><TH>TOTAL CYCLES</TH><TH>TIMESTAMP</TH></TR>";
     while ($row = mysqli_fetch_row($result)) {
         echo "<TR>";
         echo "<TD>" . $row[0] . "</TD>";
@@ -67,7 +67,6 @@ if ($result = mysqli_query($conn, $sql)) {
         echo "<TD>" . $row[3] . "</TD>"; //
         echo "<TD>" . $row[4] . "</TD>";
         echo "<TD>" . $row[5] . "</TD>";
-        echo "<TD>" . $row[6] . "</TD>";
         echo "</TR>";
     }
     echo "</TABLE>";
@@ -77,6 +76,8 @@ if ($result = mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 ?>
+
+
 
 
 
