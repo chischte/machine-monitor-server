@@ -20,17 +20,16 @@ if (! empty($_POST['id']) && ! empty($_POST['status']) && ! empty($_POST['cycr']
     $cycletotal = $_POST['cyct'];
 
     $rigname = 'PTH STANDARD';
-    $rigid = '1';
+    //$rigid = '1';
 
-    // if (" . $testrig . " == $rigid) { //0 = Strings are equal
-    //if ('id' == $rigid) { // 0 = Strings are equal
-      //  $testrig = $rigname;
-   // }
-    //VALUES ('" . $testrig . "', '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
+    switch ($_POST['id']) {
+        case '1':
+            $testrig = $rigname;
+            break;
+    }
 
     $sql = "INSERT INTO logs (testrig, status, cyclereset, cycletotal)
-		
-		VALUES ("OKY","DOKEY","KARA","OKE")";
+		VALUES ('" . $testrig . "', '" . $status . "', '" . $cyclereset . "', '" . $cycletotal . "')";
 
     if ($conn->query($sql) === TRUE) {
         echo "OK";
