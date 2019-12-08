@@ -25,7 +25,7 @@ if (! empty($_POST['testrig']) && ! empty($_POST['status'])&& ! empty($_POST['cy
     $cyclereset = $_POST['cyclereset'];
     $cycletotal = $_POST['cycletotal'];
 
-if(strcomp($testrig,"1"))
+if(strcomp($testrig,'1'))
 {
     $testrig='PTH STANDARD';
 }
