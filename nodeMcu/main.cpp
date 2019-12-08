@@ -153,7 +153,9 @@ void setup()
 void loop()
 {
   //GET LOG INFORMATION FROM SERIAL COMMUNICATION:
-  static String serialInputString="id=1&status=running&cycr=666&cyct=1234567";;
+  static String serialInputString="id=***&status=***&cycr=***&cyct=***";
+  //static String serialInputString="id=1&status=running&cycr=666&cyct=1234567";
+
   while (Serial.available())
   {
     serialInputString = Serial.readString(); // read the incoming data as string
