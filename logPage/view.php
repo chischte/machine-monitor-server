@@ -54,10 +54,11 @@ if ($conn->connect_error) {
 <div id="cards" class="cards">
  
 <?php
-$sql =
-"SELECT id,testrig,status,cyclereset,cycletotal,
-DATE_FORMAT(`timestamp`, '%a %d-%c-%Y %d:%i:%s')
- FROM logs; ORDER BY id DESC";
+$sql = "SELECT id,testrig,status,cyclereset,cycletotal,DATE_FORMAT
+(`timestamp`, '%a %d-%c-%Y %d:%i:%s')
+FROM logs
+ORDER BY id DESC";
+
 if ($result = mysqli_query($conn, $sql)) {
     // Fetch one and one row
     echo "<TABLE id='c4ytable'>";
@@ -79,6 +80,8 @@ if ($result = mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 ?>
+
+
 
 
 
