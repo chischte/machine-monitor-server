@@ -23,7 +23,7 @@ if (! empty($_POST['id']) && ! empty($_POST['status']) && ! empty($_POST['cycr']
    $rigname = 'PTH STANDARD';
    $rigid = '1';
 
-    if (testrig == $rigid) { //0 = Strings are equal
+   if (" . $testrig . " == $rigid) { //0 = Strings are equal
          $testrig = $rigname;
      }
 
