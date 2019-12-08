@@ -164,7 +164,7 @@ void loop()
   String testrig, status, cyclereset, cycletotal, postData;
   int adcvalue = analogRead(A0); //Read Analog value of LDR
   //testrig = String(adcvalue);   //String to interger conversion
-  testrig = "1";
+  testrig = "2";
   status = serialInputString;
   cyclereset = "666";
   cycletotal = "1234567";
