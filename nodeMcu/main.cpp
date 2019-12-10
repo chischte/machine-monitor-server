@@ -150,6 +150,7 @@ void loop()
 {
   // GET LOG INFORMATION FROM SERIAL COMMUNICATION:
   static String serialInputString = "id=***&status=***&cycr=***&cyct=***";
+  static String previousSerialInputString = " ";
   // EXAMPLE OF LOG OVER SERIAL CONTENT: id=1&status=running&cycr=666&cyct=1234567
 
   while (Serial.available())
@@ -157,18 +158,22 @@ void loop()
     serialInputString = Serial.readString(); // read the incoming data as string
   }
 
-  HTTPClient http; //Declare object of class HTTPClient
+  // POST DATA IF STRING HAS CHANGED:
+  if (serialInputString != previousSerialInputString)
+  {
+    HTTPClient http; //Declare object of class HTTPClient
 
-  http.begin("http://machinelogger.synology.me:8080/postLog.php");     //Specify request destination
-  http.addHeader("Content-Type", "application/x-www-form-urlencoded"); //Specify content-type header
+    http.begin("http://machinelogger.synology.me:8080/postLog.php");     //Specify request destination
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded"); //Specify content-type header
 
-  int httpCode = http.POST(serialInputString); //Send the request
-  String payload = http.getString();           //Get the response payload
+    int httpCode = http.POST(serialInputString); //Send the request
+    String payload = http.getString();           //Get the response payload
 
-  Serial.println(httpCode); //Print HTTP return code
-  Serial.println(payload);  //Print request response payload
+    Serial.println(httpCode); //Print HTTP return code
+    Serial.println(payload);  //Print request response payload
 
-  http.end(); //Close connection
-
-  delay(5000); //Post Data at every 5 seconds
+    http.end(); //Close connection
+    previousSerialInputString = serialInputString;
+  }
+  //delay(5000); //Post Data at every 5 seconds
 }

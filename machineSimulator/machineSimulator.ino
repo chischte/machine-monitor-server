@@ -15,6 +15,7 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(TOGGLE_PIN, INPUT_PULLUP);
   Serial.begin(9600);
+  Serial.println("id=1&status=POWER ON&cycr=***&cyct=***");
 }
 
 void loop() {
@@ -24,20 +25,22 @@ void loop() {
   static String machineStatus = "stopped";
   static String cyclesReset = "666";
   static String cyclesTotal = "1201556";
-  String logString = "id=" + machineId + "&status=" + machineStatus + "&cycr=" + cyclesReset + "&cyct=" + cyclesTotal;
-
   if (stateToggleButton.switchedLow()) {
     if (machineStatus == "running") {
       machineStatus = "stopped";
     } else {
       machineStatus = "running";
     }
-  }
-
-  if (printDelay.delayTimeUp(3000)) {
-    Serial.println(logString);
-    //Serial.println("id=2&status=running&cycr=666&cyct=1234567");
     cyclesReset = countOneUp(cyclesReset);
     cyclesTotal = countOneUp(cyclesTotal);
+    String logString = "id=" + machineId + "&status=" + machineStatus + "&cycr=" + cyclesReset + "&cyct=" + cyclesTotal;
+    Serial.println(logString);
   }
+
+  //if (printDelay.delayTimeUp(3000)) {
+  //Serial.println("id=2&status=running&cycr=666&cyct=1234567");
+  //cyclesReset = countOneUp(cyclesReset);
+  //cyclesTotal = countOneUp(cyclesTotal);
+  //}
+  
 }
