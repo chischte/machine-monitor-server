@@ -163,7 +163,7 @@ void loop()
   {
     HTTPClient http; //Declare object of class HTTPClient
 
-    http.begin("http://machinelogger.synology.me:8080/postLog.php");     //Specify request destination
+    http.begin("http://chischte.com/postLog.php");     //Specify request destination
     http.addHeader("Content-Type", "application/x-www-form-urlencoded"); //Specify content-type header
 
     int httpCode = http.POST(serialInputString); //Send the request
