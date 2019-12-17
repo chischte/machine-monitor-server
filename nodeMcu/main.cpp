@@ -143,7 +143,7 @@ void setup()
   Serial.println(WiFi.localIP());
   delay(5000);
   // GET A PING FROM MACHINE-DB-SERVER:
-  pingServer();
+  //pingServer();
 }
 
 void loop()
